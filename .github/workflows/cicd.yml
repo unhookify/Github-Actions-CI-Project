@@ -11,7 +11,7 @@ permissions:
   security-events: write
 
 env:
-  DOCKER_IMAGE: acecloudacademy/bankapp:latest
+  DOCKER_IMAGE: spandanmandal/bankapp:latest
 
 jobs:
 # ══════════════════════════════════════════════════════════════════════════════
@@ -989,7 +989,7 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           from: ${{ secrets.SMTP_USERNAME }}
-          to: vijayakumarbl276@gmail.com
+          to: ${{ secrets.MAIL_USERNAME }}
           subject: "✅ SUCCESS: DevSecOps Pipeline - ${{ github.repository }} [${{ github.ref_name }}]"
           body: file://reports/pipeline-summary.txt
           attachments: |
@@ -1013,7 +1013,7 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           from: ${{ secrets.SMTP_USERNAME }}
-          to: vijayakumarbl276@gmail.com
+          to: ${{ secrets.SMTP_USERNAME }}
           subject: "❌ FAILED: DevSecOps Pipeline - ${{ github.repository }} [${{ github.ref_name }}] - ${{ steps.pipeline_status.outputs.failed_stage }}"
           body: file://reports/pipeline-summary.txt
           attachments: |
